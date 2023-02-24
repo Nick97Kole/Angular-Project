@@ -72,7 +72,7 @@ namespace Help_Desk_Project.Controllers
     }
 
 
-    [HttpGet("get all")]
+    [HttpGet("getall")]
     public List<Ticket> GetAll()
     {
       return repo.GetAllTickets();
