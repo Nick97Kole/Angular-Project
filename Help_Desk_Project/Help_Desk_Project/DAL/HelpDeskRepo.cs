@@ -1,4 +1,5 @@
 using Help_Desk_Project.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Help_Desk_Project.DAL
 {
@@ -20,5 +21,22 @@ namespace Help_Desk_Project.DAL
     {
       return _dbContext.Tickets.ToList();
     }
+
+    public Ticket FindById(int id)
+    {
+      return _dbContext.Tickets.AsNoTracking().FirstOrDefault(x => x.Id == id);
+    }
+
+    public bool UpdateTickets(Ticket ticketToEdit)
+    {
+      if (FindById(ticketToEdit.Id) == null)
+      {
+        return false;
+      }
+      _dbContext.Tickets.Update(ticketToEdit);
+      _dbContext.SaveChanges();
+      return true;
+    }
+
   }
 }
