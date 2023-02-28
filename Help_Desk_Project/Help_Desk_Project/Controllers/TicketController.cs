@@ -3,6 +3,7 @@ using Help_Desk_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
+using System.Text.Json;
 
 namespace Help_Desk_Project.Controllers
 {
@@ -15,18 +16,19 @@ namespace Help_Desk_Project.Controllers
 
     
     [HttpPost("add")]
-    public Ticket AddTicket(string title, string description, string createdBy, string assignedTo, string status, DateTime CreatedDate, DateTime ResolvedDate)
+    public Ticket AddTicket(Ticket ticketToAdd)
     {
+      
       Ticket newTicket = new Ticket
       {
 
-        Title = title,
-        Description = description,
-        CreatedBy = createdBy,
-        AssignedTo = assignedTo,
-        Status = status,
-        CreatedDate = CreatedDate,
-        ResolvedDate = ResolvedDate
+        Title = ticketToAdd.Title,
+        Description = ticketToAdd.Description,
+        CreatedBy = ticketToAdd.CreatedBy,
+        AssignedTo = ticketToAdd.AssignedTo,
+        Status = ticketToAdd.Status,
+        CreatedDate = ticketToAdd.CreatedDate,
+        ResolvedDate = ticketToAdd.ResolvedDate
       };
       return repo.AddTicket(newTicket);
     }
@@ -42,8 +44,8 @@ namespace Help_Desk_Project.Controllers
         CreatedBy = createdBy,
         AssignedTo = assignedTo,
         Status = status,
-        CreatedDate = CreatedDate,
-        ResolvedDate = ResolvedDate
+        //CreatedDate = CreatedDate,
+        //ResolvedDate = ResolvedDate
       };
 
      
@@ -72,7 +74,7 @@ namespace Help_Desk_Project.Controllers
     }
 
 
-    [HttpGet("getall")]
+    [HttpGet()]
     public List<Ticket> GetAll()
     {
       return repo.GetAllTickets();

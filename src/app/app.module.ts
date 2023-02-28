@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TicketModule } from './ticket/ticket.module';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
-
 @NgModule({
   declarations: [
     AppComponent
@@ -17,8 +14,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    TicketModule,
-    
+    TicketModule
   ],
   providers: [],
   bootstrap: [AppComponent]

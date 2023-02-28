@@ -5,7 +5,7 @@ export interface ITicket{
     createdBy: string
     assignedTo: string
     status: string
-    createDate: Date 
+    createdDate: Date 
     resolvedDate: Date
 
 

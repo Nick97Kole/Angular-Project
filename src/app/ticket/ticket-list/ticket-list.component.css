@@ -1,0 +1,14 @@
+.ticket-list {
+    width: 10
+    0%;
+    }
+    .ticket-list-cell{
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+    .add-form{
+        width:50%
+    }
+    td{
+        vertical-align: top;
+    }

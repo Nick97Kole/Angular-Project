@@ -1,24 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ITicket } from './Interfaces/Ticket';
-
+import { NgForm } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
 export class TicketRepositoryService {
-  private apiUri  = 'https://localhost:7225/api/Help_Desk'
-
+  private apiUri  = 'https://localhost:7225/api/Ticket'
   constructor(private http: HttpClient) { }
-  // apiUri: string = 'https://localhost:7225/api/ticket/getall'
-  // getTickets() {
-  //   return this.http.get(this.apiUri)
-  // }
-  getTickets(): Observable<ITicket[]> {
-    return this.http.get<ITicket[]>(this.apiUri);
+  getTickets() {
+    return this.http.get(this.apiUri)
   }
 
-  getTicket(id: number): Observable<ITicket> {
-    return this.http.get<ITicket>(`${this.apiUri}/${id}`);
+  addTickets(ticket:ITicket)  {
+    return this.http.post(`${this.apiUri}/add`,ticket);
+  }
+
+
+  getTicketDetails(id:number){
+    let newUri = `${this.apiUri}/${id}`
+    return this.http.get<ITicket>(newUri);
   }
 }
