@@ -27,13 +27,13 @@ namespace Help_Desk_Project.DAL
       return _dbContext.Tickets.AsNoTracking().FirstOrDefault(x => x.Id == id);
     }
 
-    public bool UpdateTickets(Ticket ticketToEdit)
+    public bool UpdateTickets(Ticket ticketToUpdate)
     {
-      if (FindById(ticketToEdit.Id) == null)
+      if (FindById(ticketToUpdate.Id) == null)
       {
         return false;
       }
-      _dbContext.Tickets.Update(ticketToEdit);
+      _dbContext.Tickets.Update(ticketToUpdate);
       _dbContext.SaveChanges();
       return true;
     }

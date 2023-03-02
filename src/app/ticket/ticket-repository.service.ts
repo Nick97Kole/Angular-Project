@@ -21,4 +21,8 @@ export class TicketRepositoryService {
     let newUri = `${this.apiUri}/${id}`
     return this.http.get<ITicket>(newUri);
   }
+
+  updateTicket(ticket:ITicket){
+    return this.http.post(`${this.apiUri}/update`,ticket);
+  }
 }

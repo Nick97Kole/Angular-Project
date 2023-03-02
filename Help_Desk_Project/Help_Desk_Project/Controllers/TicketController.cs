@@ -34,25 +34,24 @@ namespace Help_Desk_Project.Controllers
     }
 
     [HttpPost("update")]
-    public HttpResponseMessage UpdateTicket(string title, string description, string createdBy, string assignedTo, string status, DateTime CreatedDate, DateTime ResolvedDate, int Id)
+    public HttpResponseMessage UpdateTicket(Ticket ticketToUpdate)
     {
-      Ticket ticketToUpdate = new Ticket
+      Ticket updatedTicket = new Ticket
       {
-        Id = Id,
-        Title = title,
-        Description = description,
-        CreatedBy = createdBy,
-        AssignedTo = assignedTo,
-        Status = status,
-        //CreatedDate = CreatedDate,
-        //ResolvedDate = ResolvedDate
-      };
+        Title = ticketToUpdate.Title,
+        Description = ticketToUpdate.Description,
+        CreatedBy = ticketToUpdate.CreatedBy,
+        AssignedTo = ticketToUpdate.AssignedTo,
+        Status = ticketToUpdate.Status,
+        CreatedDate = ticketToUpdate.CreatedDate,
+        ResolvedDate = ticketToUpdate.ResolvedDate
 
-     
+
+      };
 
       try
       {
-        if (repo.UpdateTickets(ticketToUpdate) == true)
+        if (repo.UpdateTickets(updatedTicket) == true)
         {
           return new HttpResponseMessage(HttpStatusCode.NoContent);
         }
@@ -65,6 +64,7 @@ namespace Help_Desk_Project.Controllers
       {
         return new HttpResponseMessage(HttpStatusCode.ServiceUnavailable);
       }
+
     }
 
     [HttpGet("{id}")]

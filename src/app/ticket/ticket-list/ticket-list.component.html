@@ -24,11 +24,11 @@
                         <td class="ticket-list-cell">Ticket Status</td>
                         <td></td>
                     </tr>
-                        <tr *ngFor="let ticket of Tickets, index as i">
+                        <tr *ngFor="let ticket of Tickets">
                             <td class="ticket-list-cell">{{ticket.id}}</td>
                             <td class="ticket-list-cell">{{ticket.title}}</td>
                             <td class="ticket-list-cell">{{ticket.status}}</td>
-                            <td><a [routerLink]="['/ticket-detail',i]">View Details</a>
+                            <td><a [routerLink]="['/ticket-detail',ticket.id]">View Details</a>
                             </td>
                     </tr>
                 </table>

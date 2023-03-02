@@ -1,11 +1,13 @@
-<h4>Ticket Details</h4>
-    <dl>
-        <dt>Description</dt>
-        <dd>{{ticketDetails?.description}}</dd>
-        <dt>Created by:</dt>
-        <dd>{{ticketDetails?.createdBy}}</dd>
-
-        <dd>
-           
-       
-    </dl>
+<a routerLink="../../ticket-list">Back to List</a>
+<form #updateTicketForm="ngForm" (ngSubmit)="updateTicket(updateTicketForm)">
+    <table>
+        <tr><td><label for="title">Title:</label></td><td><input name="title" id="title" value={{ticketDetails?.title}} ngModel /> </td></tr>
+        <tr><td><label for="description">Description:</label></td><textarea rows="4" cols="21" name="description" id="description" value={{ticketDetails?.description}} ngModel ></textarea><td></td></tr>
+        <tr><td><label for="createdby">Created By:</label></td><td><input name="createdby" id="createdby" value={{ticketDetails?.createdBy}} ngModel /> </td></tr>
+        <tr><td><label for="assignedto">Assigned To:</label></td><td><input name="assignedto" id="assignedto" value={{ticketDetails?.assignedTo}} ngModel /> </td></tr>
+        <tr><td><label for="status">Status</label></td><td><input name="status" id="status" value={{ticketDetails?.status}} ngModel /> </td></tr>
+        <tr><td><label for="createddate">Created Date:</label></td><td><input name="createddate" id="createddate"  value={{ticketDetails?.createdDate}} ngModel /> </td></tr>
+        <tr><td><label for="resolveddate">Resolved Date:</label></td><td><input name="resolveddate" id="resolveddate" value={{ticketDetails?.resolvedDate}} ngModel /> </td></tr>
+        <tr><td><button>Update Ticket</button></td></tr>
+    </table>
+</form>
