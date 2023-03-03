@@ -36,7 +36,7 @@ namespace Help_Desk_Project.Controllers
     }
 
 
-    [HttpGet("getall")]
+    [HttpGet()]
     public List<Favorite> GetAll()
     {
       return repo.GetAllFavorites();

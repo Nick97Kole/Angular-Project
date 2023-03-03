@@ -4,10 +4,12 @@ import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { FavoriteComponent } from './favorite/favorite.component';
 @NgModule({
   declarations: [
     TicketListComponent,
-    TicketDetailComponent
+    TicketDetailComponent,
+    FavoriteComponent
   ],
   imports: [
     CommonModule,
