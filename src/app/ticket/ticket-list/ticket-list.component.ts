@@ -15,8 +15,8 @@ export class TicketListComponent {
   createdby: string = "";
   assignedTo: string = "";
   status: string = "";
-  createDate: string = "";
-  resolvedDate: string = "";
+  // createDate: string = "";
+  // resolvedDate: string = "";
 
 ngOnInit(): void {
   this.repositoryService.getTickets().subscribe(
@@ -31,8 +31,8 @@ addTicket(form: NgForm){
     createdBy: form.form.value.createdby,
     assignedTo: form.form.value.assignedto,
     status: form.form.value.status,
-    createdDate: new Date(form.form.value.createddate),
-    resolvedDate: new Date(form.form.value.resolveddate)
+    // createdDate: new Date(form.form.value.createddate),
+    // resolvedDate: new Date(form.form.value.resolveddate)
 
     
 
