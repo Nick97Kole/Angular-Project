@@ -3,6 +3,10 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ITicket } from '../Interfaces/Ticket';
 import { TicketRepositoryService } from '../ticket-repository.service';
+import { Router } from '@angular/router';
+import { IFavorite } from '../Interfaces/favorite';
+import { FavoriteRepositoryService } from '../favorite-repository.service';
+
 
 @Component({
   selector: 'app-ticket-detail',
@@ -14,8 +18,9 @@ export class TicketDetailComponent {
   @Input() id: number = -1;
   @Input() title: string = "";
    ticketDetails: ITicket | undefined;
-
-  constructor(private route: ActivatedRoute, private repo:TicketRepositoryService){}
+userId: string = ""
+  constructor(private route: ActivatedRoute, private repo:TicketRepositoryService, private _router: Router, private favoriteRepositoryService: FavoriteRepositoryService
+    ){}
   ngOnInit(): void{
     this.id = this.route.snapshot.params['id'];
     this.getDetails()
@@ -33,28 +38,16 @@ export class TicketDetailComponent {
     createdBy: form.form.value.createdby,
     assignedTo: form.form.value.assignedto,
     status: form.form.value.status,
-    // createdDate: new Date(form.form.value.createddate.toString().replace("T00:00:00","")),
-    // resolvedDate: new Date(form.form.value.resolveddate)
+    createdDate: new Date(form.form.value.createddate.toString().replace("T00:00:00","")),
+    resolvedDate: new Date(form.form.value.resolveddate)
     };
 
-//  if (updatedTicket.title == ""){
-//   updatedTicket.title = "broken" //this.route.snapshot.params['title']
-//  }
-//  if (updatedTicket.description == ""){
-//   updatedTicket.description = this.route.snapshot.params['description']
-//  }
-//  if (updatedTicket.createdBy == ""){
-//   updatedTicket.createdBy = this.route.snapshot.params['createdBy']
-//  }
-//  if (updatedTicket.assignedTo == ""){
-//   updatedTicket.assignedTo = this.route.snapshot.params['assignedTo']
-//  }
-// //  if (updatedTicket.status == ""){
-// //   updatedTicket.status = this.route.snapshot.params['status']
-// //  }
+
 
    this.repo.updateTicket(updatedTicket).subscribe(
    );
+   this._router.navigate(['ticket-list'])
+
 }
 
   getDetails(){
@@ -63,9 +56,15 @@ export class TicketDetailComponent {
       });
   }
 
-favoriteTicket(){
-
+favoriteTicket(form: NgForm)
+{
+  let newFavorite: IFavorite = {
+    Id: -1, 
+    TicketId: this.id,
+    UserId: form.form.value.userId
+  }
+    this.favoriteRepositoryService.addFavorite(newFavorite).subscribe();
   
-}
 
+}
 }

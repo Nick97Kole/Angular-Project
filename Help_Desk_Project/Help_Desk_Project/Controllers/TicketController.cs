@@ -27,8 +27,8 @@ namespace Help_Desk_Project.Controllers
         CreatedBy = ticketToAdd.CreatedBy,
         AssignedTo = ticketToAdd.AssignedTo,
         Status = ticketToAdd.Status,
-        //CreatedDate = ticketToAdd.CreatedDate,
-        //ResolvedDate = ticketToAdd.ResolvedDate
+        CreatedDate = ticketToAdd.CreatedDate,
+        ResolvedDate = ticketToAdd.ResolvedDate
       };
       return repo.AddTicket(newTicket);
     }
@@ -44,8 +44,8 @@ namespace Help_Desk_Project.Controllers
         CreatedBy = ticketToUpdate.CreatedBy,
         AssignedTo = ticketToUpdate.AssignedTo,
         Status = ticketToUpdate.Status,
-        //CreatedDate = ticketToUpdate.CreatedDate,
-        //ResolvedDate = ticketToUpdate.ResolvedDate
+        CreatedDate = ticketToUpdate.CreatedDate,
+        ResolvedDate = ticketToUpdate.ResolvedDate
 
 
       };

@@ -1,1 +1,13 @@
-<p>favorite works!</p>
+<table class="ticket-list">
+    <tr>
+        <td>Ticket Number</td>
+        <td>User</td>
+        <td></td>
+    </tr>
+        <tr *ngFor="let favorite of Favorites">
+            <td>{{favorite.ticketId}}</td>
+            <td>{{favorite.userId}}</td>
+            <td><a [routerLink]="['/ticket-detail',favorite.ticketId]">View Details</a>
+            </td>
+    </tr>
+</table>

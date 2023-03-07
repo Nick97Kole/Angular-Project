@@ -9,8 +9,8 @@
                     <tr><td><label for="createdby">Created By:</label></td><td><input name="createdby" id="createdby" ngModel /> </td></tr>
                     <tr><td><label for="assignedto">Assigned To:</label></td><td><input name="assignedto" id="assignedto" ngModel /> </td></tr>
                     <tr><td><label for="status">Status</label></td><td><input name="status" id="status" ngModel /> </td></tr>
-                    <!-- <tr><td><label for="createddate">Created Date:</label></td><td><input name="createddate" id="createddate" ngModel/> </td></tr>
-                    <tr><td><label for="resolveddate">Resolved Date:</label></td><td><input name="resolveddate" id="resolveddate" ngModel /> </td></tr> -->
+                    <tr><td><label for="createddate">Created Date:</label></td><td><input name="createddate" id="createddate" ngModel/> </td></tr>
+                    <tr><td><label for="resolveddate">Resolved Date:</label></td><td><input name="resolveddate" id="resolveddate" ngModel /> </td></tr>
                     <tr><td><button> Add Ticket</button></td></tr>
                 </table>
             </form>
@@ -35,3 +35,5 @@
         </td>
     </tr>
 </table>
+<a [routerLink]="['../favorite']">View Favorites</a>
+

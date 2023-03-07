@@ -15,13 +15,12 @@ namespace Help_Desk_Project.Controllers
 
 
     [HttpPost("add")]
-    public Favorite AddFavorite( int ticketId, string userId)
+    public Favorite AddFavorite(Favorite favoriteToAdd)
     {
       Favorite newFavorite = new Favorite
       {
-        
-        TicketId = ticketId,
-        UserId = userId,
+        TicketId = favoriteToAdd.TicketId,
+        UserId = favoriteToAdd.UserId,
         
       };
       return repo.AddFavorite(newFavorite);

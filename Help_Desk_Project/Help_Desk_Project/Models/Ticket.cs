@@ -1,3 +1,5 @@
+using Microsoft.VisualBasic;
+
 namespace Help_Desk_Project.Models
 {
   public class Ticket

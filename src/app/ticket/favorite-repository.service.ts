@@ -11,7 +11,7 @@ export class FavoriteRepositoryService {
   addFavorite(favorite:IFavorite)  {    return this.http.post(`${this.apiUri}/add`,favorite);  }
 
   getFavorites() {
-    return this.http.get(this.apiUri)
+    return this.http.get(`${this.apiUri}`);  
   }
 }
 
