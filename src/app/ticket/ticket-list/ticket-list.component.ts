@@ -31,8 +31,8 @@ addTicket(form: NgForm){
     createdBy: form.form.value.createdby,
     assignedTo: form.form.value.assignedto,
     status: form.form.value.status,
-    createdDate: new Date(form.form.value.createddate),
-    resolvedDate: new Date(form.form.value.resolveddate)
+    createdDate: (form.form.value.createddate),
+    resolvedDate:  (form.form.value.resolveddate)
 
     
 
@@ -49,6 +49,13 @@ getTickets() {
   this.repositoryService.getTickets().subscribe(
     (response) => { this.Tickets = response; });
 }
+
+getColor(status:string):string{
+  if( status === "Open"){
+    return "Red"
+  }
+  return "green"
+      }
 
  }
 

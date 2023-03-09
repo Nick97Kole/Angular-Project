@@ -8,7 +8,11 @@
                     <tr><td><label for="description">Description:</label></td><td><input name="description" id="description" ngModel /> </td></tr>
                     <tr><td><label for="createdby">Created By:</label></td><td><input name="createdby" id="createdby" ngModel /> </td></tr>
                     <tr><td><label for="assignedto">Assigned To:</label></td><td><input name="assignedto" id="assignedto" ngModel /> </td></tr>
-                    <tr><td><label for="status">Status</label></td><td><input name="status" id="status" ngModel /> </td></tr>
+                    <tr><td><label for="status">Status</label></td><td><select name="status" id="status" ngModel>
+                        <option value="Open">Open</option>
+                        <option value="Closed">Closed</option>
+                        </select>
+                        </td></tr>
                     <tr><td><label for="createddate">Created Date:</label></td><td><input name="createddate" id="createddate" ngModel/> </td></tr>
                     <tr><td><label for="resolveddate">Resolved Date:</label></td><td><input name="resolveddate" id="resolveddate" ngModel /> </td></tr>
                     <tr><td><button> Add Ticket</button></td></tr>
@@ -27,7 +31,8 @@
                         <tr *ngFor="let ticket of Tickets">
                             <td class="ticket-list-cell">{{ticket.id}}</td>
                             <td class="ticket-list-cell">{{ticket.title}}</td>
-                            <td class="ticket-list-cell">{{ticket.status}}</td>
+                            <td class="ticket-list-cell" [ngStyle]="{'backgroundColor': getColor(ticket.status)}"
+                            >{{ticket.status}}</td>
                             <td><a [routerLink]="['/ticket-detail',ticket.id]">View Details</a>
                             </td>
                     </tr>
@@ -35,5 +40,13 @@
         </td>
     </tr>
 </table>
-<a [routerLink]="['../favorite']">View Favorites</a>
+<button a [routerLink]="['../favorite']">View Favorites</button>
+
+<body>
+	<h1>We are here to help</h1>
+	<img src="https://friendlystock.com/wp-content/uploads/2018/03/1-man-with-exploding-computer-cartoon-clipart.jpg" alt="My Image" width="210" height="330">
+
+    <div class="red-box"></div>
+
+</body>
 

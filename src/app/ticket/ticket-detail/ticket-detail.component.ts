@@ -38,8 +38,8 @@ userId: string = ""
     createdBy: form.form.value.createdby,
     assignedTo: form.form.value.assignedto,
     status: form.form.value.status,
-    createdDate: new Date(form.form.value.createddate.toString().replace("T00:00:00","")),
-    resolvedDate: new Date(form.form.value.resolveddate)
+    createdDate: (form.form.value.createddate.toString().replace("T00:00:00","")),
+    resolvedDate:(form.form.value.resolveddate.toString().replace("T00:00:00",""))
     };
 
 

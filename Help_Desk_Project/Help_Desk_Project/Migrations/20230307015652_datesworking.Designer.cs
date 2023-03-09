@@ -3,6 +3,7 @@ using Help_Desk_Project.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Help_Desk_Project.Migrations
 {
     [DbContext(typeof(HelpDeskDbContext))]
-    partial class HelpDeskDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230307015652_datesworking")]
+    partial class datesworking
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
