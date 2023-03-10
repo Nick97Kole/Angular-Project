@@ -38,5 +38,10 @@ namespace Help_Desk_Project.DAL
       return true;
     }
 
+    public List<Ticket> GetOpenTickets()
+    {
+      return _dbContext.Tickets.Where(x => x.Status == "Open").ToList();
+    }
+
   }
 }

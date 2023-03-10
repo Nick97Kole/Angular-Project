@@ -25,4 +25,8 @@ export class TicketRepositoryService {
   updateTicket(ticket:ITicket){
     return this.http.post(`${this.apiUri}/update`,ticket);
   }
+
+  getOpenTickets() {
+    return this.http.get(`${this.apiUri}/open`)
+  }
 }

@@ -20,7 +20,9 @@
             </form>
         </td>
         <td>
-            <h3>Current Tickets</h3>
+            <h3>{{ticketHeader}}
+            </h3><button (click)="toggleTickets()">{{buttonText}}</button>
+
                 <table class="ticket-list">
                     <tr>
                         <td class="ticket-list-cell">Ticket Number</td>
@@ -47,6 +49,9 @@
 	<img src="https://friendlystock.com/wp-content/uploads/2018/03/1-man-with-exploding-computer-cartoon-clipart.jpg" alt="My Image" width="210" height="330">
 
     <div class="red-box"></div>
+    <div class="green-box"></div>
+    <div class="black-box"></div>
+
 
 </body>
 

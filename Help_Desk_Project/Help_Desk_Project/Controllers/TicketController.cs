@@ -81,5 +81,11 @@ namespace Help_Desk_Project.Controllers
       return repo.GetAllTickets();
     }
 
+    [HttpGet("open")]
+    public List<Ticket> GetAllOpen()
+    {
+      return repo.GetOpenTickets();
+    }
+
   }
 }

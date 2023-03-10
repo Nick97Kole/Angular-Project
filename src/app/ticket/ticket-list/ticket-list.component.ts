@@ -17,10 +17,14 @@ export class TicketListComponent {
   status: string = "";
   createDate: string = "";
   resolvedDate: string = "";
+  showAllTickets: boolean = false;
+  buttonText: string = "Show All Tickets"
+  ticketHeader : string = "Current Tickets"
+
 
 ngOnInit(): void {
-  this.repositoryService.getTickets().subscribe(
-    (response) => {this.Tickets = response;});
+  this.getOpenTickets();
+
 }
 addTicket(form: NgForm){
 
@@ -57,6 +61,27 @@ getColor(status:string):string{
   return "green"
       }
 
+      getOpenTickets(){
+        this.repositoryService.getOpenTickets().subscribe(
+          (response) => {this.Tickets = response;});
+        }
+
+    toggleTickets(): void{
+          this.showAllTickets = !this.showAllTickets;
+          if (this.showAllTickets) {
+                this.getTickets()
+            this.buttonText = "Show Open Tickets";
+            this.ticketHeader = "All Tickets"
+
+          }
+          else
+          {
+            this.getOpenTickets()
+            this.buttonText = "Show All Tickets";
+            this.ticketHeader = "Current Tickets"
+
+          }
+        }
  }
 
 

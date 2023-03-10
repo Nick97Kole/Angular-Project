@@ -5,7 +5,7 @@
         <tr><td><label for="description">Description:</label></td><textarea rows="4" cols="21" name="description" id="description" value={{ticketDetails?.description}} ngModel={{ticketDetails?.description}}></textarea><td></td></tr>
         <tr><td><label for="createdby">Created By:</label></td><td><input name="createdby" id="createdby" value={{ticketDetails?.createdBy}} ngModel={{ticketDetails?.createdBy}}/> </td></tr>
         <tr><td><label for="assignedto">Assigned To:</label></td><td><input name="assignedto" id="assignedto" value={{ticketDetails?.assignedTo}} ngModel={{ticketDetails?.assignedTo}}/> </td></tr>
-        <tr><td><label for="status">Status</label></td><td><select name="status" id="status" value = {{ticketDetails?.status}} ngModel = {{ticketDetails}}>
+        <tr><td><label for="status">Status</label></td><td><select name="status" id="status" value = {{ticketDetails?.status}} ngModel = {{ticketDetails?.status}}>
             <option value={{ticketDetails?.status}}>{{ticketDetails?.status}}</option>
             <option value="Open">Open</option>
             <option value="Closed">Closed</option>
